@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+	<RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content">
+	    
+    	<RelativeLayout android:id="@+id/top_layout"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/button_enabled" >
+	    <ImageView
+	        android:id="@+id/ivProfilePic"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="25dp"
+	        android:contentDescription="@string/tvUploaderName"
+	        android:src="@drawable/pro_pic" />
+	    
+	    <TextView 
+	        android:id="@+id/tvName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+	        android:layout_below="@+id/ivProfilePic"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/profile_name"
+	        android:textSize="15sp" />
+	    
+	    <TextView 
+	        android:id="@+id/tvDesignation"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+	        android:layout_below="@+id/tvName"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/profile_designation"
+	        android:textSize="13sp" />    
+		</RelativeLayout>
+	    	        	    	   
+		<RelativeLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:background="#fff"
+		    android:layout_below="@+id/top_layout" >
+			    <TextView 
+			        android:id="@+id/tvEmail"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginTop="15dp"
+			        android:text="@string/email"
+	        		android:layout_centerHorizontal="true" />
+			    
+			    <TextView 
+			        android:id="@+id/tvBio"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_below="@+id/tvEmail"
+			        android:layout_marginTop="15dp"
+			        android:layout_marginLeft="40dp"
+			        android:layout_marginRight="40dp"
+			        android:text="@string/profile_bio"
+	        		android:layout_centerHorizontal="true" />
+			
+			    <Button
+			        android:id="@+id/btnProfileMapView"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginTop="20dp"
+			        android:layout_marginLeft="20dp"
+			        android:layout_below="@+id/tvBio"
+			        android:drawableTop="@drawable/ic_action_map"
+			        android:text="@string/profile_map_view" />
+
+			    <Button
+			        android:id="@+id/btnProfileViewPhotos"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentBottom="true"
+			        android:layout_alignParentRight="true"
+			        android:layout_marginRight="20dp"
+			        android:drawableTop="@drawable/ic_action_picture"
+			        android:text="@string/profile_view_images" />
+	    	    	    
+			    		</RelativeLayout>		    
+	</RelativeLayout>		    
+</ScrollView>

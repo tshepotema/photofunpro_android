@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/activity_background" >
+
+    <ImageView
+        android:id="@+id/ivPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/image_title"
+        android:src="@drawable/photoholder" />
+
+    <TextView
+        android:id="@+id/tvImageDescription"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivPhoto"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/description"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/tvPhotoLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvImageDescription"
+        android:text="@string/tvPhotoLocation" />
+    
+    <Button
+        android:id="@+id/btClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvPhotoLocation"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="2dp"
+        android:text="@string/action_back"
+        android:drawableLeft="@drawable/ic_action_previous_item"
+        android:textSize="12sp"
+        android:background="@drawable/funcamtheme_btn_default_holo_light" />
+
+    <Button
+        android:id="@+id/btPegman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btClose"
+        android:layout_alignBottom="@+id/btClose"
+        android:layout_alignParentRight="true"
+        android:drawableLeft="@drawable/pegman"
+        android:text="@string/action_street_view"
+        android:textSize="12sp"
+        android:background="@drawable/funcamtheme_btn_default_holo_light" />
+
+    <Button
+        android:id="@+id/btShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btClose"
+        android:layout_alignBottom="@+id/btClose"
+        android:layout_toRightOf="@+id/btClose"
+        android:drawableLeft="@drawable/ic_action_share"
+        android:text="@string/action_share_plain"
+        android:textSize="12sp"
+        android:background="@drawable/funcamtheme_btn_default_holo_light" />
+
+</RelativeLayout>

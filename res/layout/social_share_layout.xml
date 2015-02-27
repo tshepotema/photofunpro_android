@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/activity_background" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/layout_gradient" >
+
+        <Button
+            android:id="@+id/sharebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="20dp" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view01"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#313437" />
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="5dp"
+        android:text="@string/update_social_media"
+        android:enabled="false"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/editTxt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/update"
+        android:layout_alignRight="@+id/dialogTitle"
+        android:layout_margin="5dp"
+        android:layout_marginBottom="50dp"
+        android:ems="10"
+        android:hint="Enter Message"
+        android:textColor="#000000"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tvSocialHint"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editTxt"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/post_to_social_hint" />
+
+</RelativeLayout>

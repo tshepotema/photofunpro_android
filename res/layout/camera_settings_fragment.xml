@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etDefaultDescription"
+        android:layout_below="@+id/etDefaultDescription"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/settings_multiple_upload" />
+
+    <EditText
+        android:id="@+id/etDefaultDescription"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/settings_default_description" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="29dp"
+        android:text="@string/settings_default_description_lbl" />
+
+    <CheckBox
+        android:id="@+id/cbMultiUploads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="16dp"
+        android:checked="true"
+        android:text="@string/settings_multi_upload" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cbMultiUploads"
+        android:layout_below="@+id/cbMultiUploads"
+        android:layout_marginTop="22dp"
+        android:text="@string/settings_camera_setup" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/textView3" >
+
+        <RadioButton
+            android:id="@+id/rbCameraBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"            
+            android:text="@string/settings_camera_backonly" />
+
+        <RadioButton
+            android:id="@+id/rbCameraFront"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_camera_frontonly" />
+
+        <RadioButton
+            android:id="@+id/rbCameraBoth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_camera_both"
+            android:checked="true" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:drawableLeft="@drawable/ic_action_save"
+        android:text="@string/action_save" />
+
+    <Button
+        android:id="@+id/btClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/action_cancel"
+        android:drawableLeft="@drawable/ic_action_previous_item" />
+
+</RelativeLayout>

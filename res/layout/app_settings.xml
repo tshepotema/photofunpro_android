@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp" >
+
+	<TextView
+	    android:id="@+id/tvUploaderName"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentTop="true"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="10dp"
+	    android:text="@string/tvUploaderName"
+	    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	<EditText
+	    android:id="@+id/etUploaderName"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_below="@+id/tvUploaderName"
+	    android:layout_marginTop="20dp"
+	    android:ems="14"
+	    android:inputType="textPersonName" />
+
+	<TextView
+	    android:id="@+id/tvDefaultMapDistance"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/cbUploadWifi"
+	    android:layout_below="@+id/etUploaderName"
+	    android:layout_marginTop="20dp"
+	    android:text="@string/tvDefaultMapDistance"
+	    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	<EditText
+	    android:id="@+id/etDefaultMapDistance"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_below="@+id/tvDefaultMapDistance"
+	    android:layout_marginTop="20dp"
+	    android:ems="14"
+	    android:inputType="number" />
+
+	<CheckBox
+	    android:id="@+id/cbUploadWifi"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/etDefaultMapDistance"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="20dp"
+	    android:checked="true"
+	    android:text="@string/cbUploadWifi" />
+
+	<TextView
+	    android:id="@+id/tvMapMarkerSize"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/cbUploadWifi"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="20dp"
+	    android:text="@string/mapMarkerSize"
+	    android:textAppearance="?android:attr/textAppearanceMedium" />
+	
+	<SeekBar
+	    android:id="@+id/sbMarkerSize"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/tvMapMarkerSize"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="20dp"
+	    android:max="75"
+	    android:progress="25" />
+	
+	<Button
+	    android:id="@+id/btSave"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginBottom="30dp"
+	    android:drawableLeft="@drawable/ic_action_save"
+	    android:text="@string/action_save" />
+		
+</RelativeLayout>

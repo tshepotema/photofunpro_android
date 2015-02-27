@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Photo Fun Pro</string>
+    <string name="app_name_upload">Upload Photos</string>
+    <string name="app_name_videos">photofunpro: Videos</string>
+    <string name="app_name_video_take">photofunpro: Take Video</string>
+    <string name="app_name_video_upload">photofunpro: Video Upload</string>
+    <string name="app_name_social_share">photofunpro: Social Share</string>
+    <string name="app_name_splash">photofunpro: Photo &amp; Video Sharing</string>
+    
+    <string name="title_section1">Photos</string>
+    <string name="title_section2">Map</string>
+    <string name="title_section3">Upload Photos</string>
+    <string name="title_section4">Profile</string>
+    <string name="title_section5">Settings</string>
+    
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="webphoto">Web Photo</string>
+    <string name="photouploader">Photo Uploader</string>
+    <string name="photoNumber">11</string>
+    <string name="description">Photo Description</string>    
+    <string name="tvPhotoLocation">Photo Location</string>    
+        
+    <string name="image_title">Image Title</string>
+    <string name="image_location">Location</string>
+    
+    <string name="help_text">photofunpro  &#169; 2015\n\n
+        1) This application uses Location Services please enable the location services 
+        for a smooth user experience.\n\n
+        2) By default this application only uploads photos via WiFi. Please enable WiFi or change setting in the App Settings \n\n
+        3) Pose, Smile or Pout and snap the Cam \n\n
+        __chill and let photofunpro app do the rest__ \n\n
+        follow me on twitter.com\\tshepo_tema
+    </string>
+    
+    <string name="photofunproUploads">Upload photos to share them online</string>    
+    
+    <string name="tvLblTotalImages">Total Images</string>    
+    <string name="tvLblUploadedImages">Uploaded Images</string>    
+    <string name="tvLblLocalImages">Local Images</string>    
+    <string name="tvWifiOn">Wifi: On</string>    
+	<string name="uploadall">Upload All</string>
+    <string name="uploadProgress">Upload Progress</string>
+    
+    <string name="profile_name">Name</string>
+    <string name="profile_designation">Designation</string>
+    <string name="profile_bio">Short Bio</string>
+    <string name="profile_map_view">View Map</string>
+    <string name="profile_view_images">View Images</string>
+    	
+    <string name="action_take_photo">Take Photo</string>
+    <string name="action_app_settings">Settings</string>
+    <string name="action_app_help">Help</string>
+    <string name="action_sync">Upload Photos</string>
+    <string name="action_app_main">Home</string>
+    
+    <string name="action_app_video">Videos</string>
+    <string name="action_take_video">Take Video</string>    
+    <string name="action_video_upload">Upload Video</string>    
+    <string name="action_videos_list">List Videos</string>
+    
+    <string name="action_cancel">Close</string>
+    <string name="action_save">Save</string>
+    <string name="action_update">Update</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_camera">Photo</string>
+    <string name="action_back">Back</string>
+    <string name="action_street_view">Street View</string>
+    
+    <string name="action_share">Social Share</string>
+    <string name="action_share_plain">Share</string>
+    
+    <string name="settings_default_description_lbl">Default Photo Description</string>
+    <string name="settings_default_description">mobile photo uploaded via photofunpro app</string>
+    <string name="settings_multiple_upload">Allow multiple photo uploads?</string>
+    <string name="settings_multi_upload">Multi Uploads</string>
+    <string name="settings_camera_setup">Camera Settings</string>
+    <string name="settings_camera_backonly">Back Only</string>
+    <string name="settings_camera_frontonly">Front Only</string>
+    <string name="settings_camera_both">Both</string>
+        
+    
+    <string name="post_to_social_hint">Select social media in the button above and then type message below and post to your selected social media</string>    
+    <string name="update_social_media">Post to social media</string>
+    
+    
+    <string name="btnSignIn">Sign In</string>
+    <string name="btnSignOut">Sign Out</string>
+    <string name="btnRegister">Register</string>
+    
+    <string name="email">Email Address</string>
+    <string name="password">Password</string>
+    <string name="password_confirm">Confirm Password</string>
+
+    
+    <string name="tvUploaderName">Uploader Name</string>
+    <string name="tvDefaultMapDistance">Default Map Distance</string>
+    <string name="cbUploadWifi">Upload only on WIFI</string>
+    <string name="mapMarkerSize">Map Marker Size</string>
+    
+    <string name="playerview_text">Latest videos uploaded from photofunpro app!</string>
+	<string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>    
+    <string name="error_thumbnail_view">There was an error initializing the YouTubeThumbnailView (%1$s)</string>
+	
+    <string name="request_position">Position</string>
+    <string name="walk_panorama">Walk</string>
+	<string name="down_arrow">\u2193</string>
+	<string name="right_arrow">\u2192</string>
+  	<string name="left_arrow">\u2190</string>
+    <string name="up_arrow">\u2191</string>
+    <string name="duration">Customize Duration</string>
+	<string name="panorama_not_ready">Panorama is not ready yet</string>    
+        
+    <string name="map_not_ready">Map is not ready yet</string>
+	<string name="go_to_prev">Previous</string>
+	<string name="go_to_next">Next</string>
+	<string name="tilt_less">\u2193</string>
+	<string name="tilt_more">\u2191</string>
+	<string name="zoom_in">+</string>
+	<string name="zoom_out">-</string>
+	    
+    <!-- ========================== -->
+	<!-- Location Services Messages -->
+    <!-- ========================== -->
+    
+    <!-- Latitude, longitude format -->
+    <string name="latitude_longitude">%1$.8f, %2$.8f</string>
+        
+    <!-- Address format -->
+    <string name="address_output_string">%1$s %2$s %3$s</string>
+    
+    <string name="latlng">GPS Coordinates:</string>
+    <string name="address">Address:</string>    
+    
+    <string name="connected">Client connected</string>
+    <string name="connection_error_code_unknown">Unknown connection error code:  %1$d</string>
+    <string name="connection_failed">Connection failed</string>
+    <string name="disconnected">Client disconnected</string>
+    <string name="get_address">Get Address</string>
+    <string name="get_location">Get Location</string>
+    <string name="illegal_argument_exception">
+        Illegal arguments: Latitude %1$.8f Longitude %2$.8f
+    </string>
+    <string name="invalid_action">Invalid intent action %1$s</string>
+    <string name="invalid_integer_id">Invalid integer request ID: %1$s</string>
+    <string name="IO_Exception_getFromLocation">IO Exception in Geocoder.getFromLocation()</string>
+    <string name="location_requested">Periodic updates requested</string>
+    <string name="location_updated">Location updated</string>
+    <string name="location_update_error">Location update failed</string>
+    <string name="location_update_error_detail">
+        Location update error. code %1$d message %2$s
+    </string>
+    <string name="location_update_missing_update">
+        Location update error. No incoming location.
+    </string>
+    <string name="location_updates_stopped">Periodic updates stopped</string>
+    <string name="log_new_location">New location: %1$s</string>
+    <string name="no_address_found">No address found for location</string>
+    <string name="no_connection">No connection: Cannot request location</string>
+    <string name="no_geocoder_available">Cannot get address. No geocoder available.</string>
+    <string name="no_location_available">Location not available</string>
+    <string name="resolved">Error resolved. Please re-try operation.</string>
+    <string name="no_resolution">Google Play services: unable to resolve connection error.</string>
+    <string name="periodic_update_stop">Stopping periodic updates</string>
+    <string name="play_services_available">Google Play services is available</string>
+    <string name="request_location_updates_in_progress">
+        Can\'t request location updates, previous request hasn\'t finished
+    </string>
+    <string name="start_updates">Start Updates</string>
+    <string name="stop_updates">Stop Updates</string>
+    <string name="unknown">--Unknown--</string>
+    <string name="unknown_activity_request_code">
+        Received an unknown activity request code %1$d in onActivityResult.
+    </string>
+    
+    
+</resources>
