@@ -8,6 +8,7 @@ import com.example.photofunpro.database.UsersTable;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
@@ -21,18 +22,22 @@ import android.graphics.Shader.TileMode;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Profile extends Fragment {
 
-	ImageView profilePic;
+	ImageView profilePic, ivEditProfile;
 	TextView tvName, tvEmail, tvDesignation, tvBio; 
 	Button btnViewMap, btnViewImages;
 	
 	private Long userID;
+	
+	String uploader;
 	
 	SharedPreferences sharedPref;
 	Editor editor;	
@@ -61,20 +66,21 @@ public class Profile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.profile_layout, container, false);
         
-        initializeLayout(rootView);
-        
         //get the user's profile ID		
 		sharedPref = getActivity().getSharedPreferences(AppSettings.MyPREFERENCES, Context.MODE_PRIVATE);
 		editor = sharedPref.edit();
+
+        //setup the activity's layout
+        initializeLayout(rootView);
 				
-		userID = sharedPref.getLong(AppSettings.userKey, 0);
-        
 		String userName = "", email = "", designation = "", bio = "";
 		
         //get the use's details from the DB
     	PhotoFunProDatabaseHelper dbHelper = new PhotoFunProDatabaseHelper(getActivity());
     	SQLiteDatabase db = dbHelper.getWritableDatabase();
 		db.setLocale(Locale.getDefault());
+		
+		userID = sharedPref.getLong(AppSettings.userKey, 0);
     	
 		Cursor cur = db.query(UsersTable.TABLE_USERS, null, UsersTable.COLUMN_ID + " = " + userID, null, null, null, null, "1");
 		cur.moveToFirst();
@@ -90,6 +96,7 @@ public class Profile extends Fragment {
         //CLOSE THE DATABASE
         db.close();
         dbHelper.close();
+		uploader = sharedPref.getString(AppSettings.nameKey, userName);        
 		
         tvName.setText(userName);
         tvEmail.setText(email);
@@ -110,8 +117,30 @@ public class Profile extends Fragment {
 		tvEmail = (TextView) rootView.findViewById(R.id.tvEmail);
 		tvDesignation = (TextView) rootView.findViewById(R.id.tvDesignation);
 		tvBio = (TextView) rootView.findViewById(R.id.tvBio);
+		ivEditProfile = (ImageView) rootView.findViewById(R.id.ivEditProfile);
 		btnViewMap = (Button) rootView.findViewById(R.id.btnProfileMapView);
 		btnViewImages = (Button) rootView.findViewById(R.id.btnProfileViewPhotos);
+		
+		btnViewImages.setOnClickListener(new OnClickListener() {			
+			@Override
+			public void onClick(View v) {				
+		        Bundle imagesBundleDetails = new Bundle();
+		        imagesBundleDetails.putString("uploader", uploader);
+		        
+		        Intent openViewImages = new Intent("com.example.photofunpro.IMAGESBYUSER");
+		        openViewImages.putExtras(imagesBundleDetails);
+		        startActivity(openViewImages);				
+			}
+		});
+		
+		ivEditProfile.setOnClickListener(new OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Toast.makeText(getActivity(), "Edit Profile", Toast.LENGTH_SHORT).show();
+			}
+		});
+		
 	}
 	
     @Override

@@ -9,6 +9,30 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.ActionBar;
+import android.app.Activity;
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
+
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.Request.Method;
@@ -25,42 +49,10 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.squareup.picasso.Picasso;
 
-import android.app.ActionBar;
-import android.app.Activity;
-import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import android.os.AsyncTask;
-import android.os.Build;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.TextView;
+public class ImagesByUser extends Activity implements ConnectionCallbacks, OnConnectionFailedListener  {
 
-public class ViewImages extends Activity implements ConnectionCallbacks, OnConnectionFailedListener {
+    public String gpsLat, gpsLon, mapDistance, reqParameters, selectedUploader;
 	
-	
-    public String gpsLat, gpsLon, mapDistance, reqParameters;
-    
-    private String selectedCategory;
-    
-	SharedPreferences sharedPref;
-	Editor editor;		    	
-    
     private ArrayList<String> imagePath = new ArrayList<String>();
     private ArrayList<String> imageDescription = new ArrayList<String>();
     private ArrayList<String> imageUploader = new ArrayList<String>();
@@ -82,7 +74,7 @@ public class ViewImages extends Activity implements ConnectionCallbacks, OnConne
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_images_grid_layout);
 		
-		//back button in the back
+		//back button in the menu
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		
@@ -93,9 +85,9 @@ public class ViewImages extends Activity implements ConnectionCallbacks, OnConne
 		pDialog.show();
 		
 		Bundle imageExtras = getIntent().getExtras();
-		selectedCategory = imageExtras.getString("selected_category");
+		selectedUploader = imageExtras.getString("uploader");
 		
-		ViewImages.this.setTitle("Photos in: " + selectedCategory);
+		ImagesByUser.this.setTitle("Photos by: " + selectedUploader);
 		
         // Create a new global location parameters object
         mLocationRequest = LocationRequest.create();
@@ -115,9 +107,7 @@ public class ViewImages extends Activity implements ConnectionCallbacks, OnConne
         .addOnConnectionFailedListener(this)
         .build();
 		
-		sharedPref = this.getSharedPreferences(AppSettings.MyPREFERENCES, Context.MODE_PRIVATE);
-		editor = sharedPref.edit();
-		mapDistance = sharedPref.getString(AppSettings.distanceKey, "50");
+		mapDistance = "1000";
 		
 		if (getLocation()) {
 			reqParameters = "Latitude=" + gpsLat + "&Longitude=" + gpsLon + "&Distance=" + mapDistance;
@@ -126,7 +116,7 @@ public class ViewImages extends Activity implements ConnectionCallbacks, OnConne
 		}
 		
 		//Log.d("images", "images -- before going into retrieve new images ");
-		retrievePhotos();		
+		retrieveUserPhotos();		
 		//Log.d("images", "images -- after going into retrieve new images ");		
     }
 	
@@ -147,7 +137,7 @@ public class ViewImages extends Activity implements ConnectionCallbacks, OnConne
 	            final String imgLon = imageLon.get(position);
 	            
 				// custom dialog
-				final Dialog dialog = new Dialog(ViewImages.this);
+				final Dialog dialog = new Dialog(ImagesByUser.this);
 				dialog.setContentView(R.layout.photo_detail_view);
 				dialog.setTitle("Uploader: " + imgUploader);
 	            
@@ -162,7 +152,7 @@ public class ViewImages extends Activity implements ConnectionCallbacks, OnConne
 				
 				ImageView imageView = (ImageView) dialog.findViewById(R.id.ivPhoto);
 				
-				Picasso.with(ViewImages.this)
+				Picasso.with(ImagesByUser.this)
 				.load(imgPath)
 				.placeholder(R.drawable.photoholder)
 				.into(imageView);		
@@ -193,21 +183,7 @@ public class ViewImages extends Activity implements ConnectionCallbacks, OnConne
 				});
 	        	 
 				Button dialogViewImageByUser = (Button) dialog.findViewById(R.id.btViewAllByUser);
-				dialogViewImageByUser.setText("All Photos by\n" + imgUploader);
-				dialogViewImageByUser.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						dialog.dismiss();
-				    	    	        
-				        Bundle imagesBundleDetails = new Bundle();
-				        imagesBundleDetails.putString("uploader", imgUploader);
-				        
-				        Intent openViewImages = new Intent("com.example.photofunpro.IMAGESBYUSER");
-				        openViewImages.putExtras(imagesBundleDetails);
-				        startActivity(openViewImages);
-						
-					}
-				});
+				dialogViewImageByUser.setVisibility(View.INVISIBLE);
 	 					            
 				dialog.show();
 	        }
@@ -232,13 +208,12 @@ public class ViewImages extends Activity implements ConnectionCallbacks, OnConne
         	startActivity(openCamera);
 			return true;
 		} else {
-			//back button clicked
 			finish();
 		}
 		return super.onOptionsItemSelected(item);
 	}    
     
-	public void retrievePhotos() {
+	public void retrieveUserPhotos() {
 		//Log.d("images", "images -- in retrieve new images ");		
 		Log.d("images", "images -- URL TO FETCH - " + Const.WS_URL + "" + reqParameters);		
 		
@@ -259,12 +234,16 @@ public class ViewImages extends Activity implements ConnectionCallbacks, OnConne
 							
 							JSONObject imageDetail = jsonArray.getJSONObject(i);
 							
-							imagePath.add(imageDetail.getString("ImagePath"));
-							imageUploader.add(imageDetail.getString("Uploader"));
-							imageDescription.add(imageDetail.getString("PhotoDescription"));
-							imageDate.add(imageDetail.getString("PhotoTimeStamp"));
-							imageLat.add(imageDetail.getString("Latitude"));
-							imageLon.add(imageDetail.getString("Longitude"));							
+							String imgUploader = imageDetail.getString("Uploader");
+							
+							if (imgUploader.equals(selectedUploader)) {							
+								imagePath.add(imageDetail.getString("ImagePath"));
+								imageUploader.add(imgUploader);
+								imageDescription.add(imageDetail.getString("PhotoDescription"));
+								imageDate.add(imageDetail.getString("PhotoTimeStamp"));
+								imageLat.add(imageDetail.getString("Latitude"));
+								imageLon.add(imageDetail.getString("Longitude"));	
+							}
 						}
 						
 					} catch (JSONException e) {
@@ -352,12 +331,12 @@ public class ViewImages extends Activity implements ConnectionCallbacks, OnConne
 
         // Display the current location in the UI
         String locationCoords = LocationUtils.getLatLng(this, currentLocation);
-        Log.d("photofunpro", "photofunpro - updated coordinates trying to update lat, lon");
+        //Log.d("photofunpro", "photofunpro - updated coordinates trying to update lat, lon");
         if (locationCoords.length() > 1) {
         	String[] parts = locationCoords.split(",");
         	gpsLat = parts[0];
         	gpsLon = parts[1];
-            Log.d("photofunpro", "photofunpro - updated coordinates lat = " + gpsLat + ", lon = " + gpsLon);
+            //Log.d("photofunpro", "photofunpro - updated coordinates lat = " + gpsLat + ", lon = " + gpsLon);
         } else {
         	return false;
         }

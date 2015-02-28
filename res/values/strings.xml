@@ -24,7 +24,8 @@
     <string name="photoNumber">11</string>
     <string name="description">Photo Description</string>    
     <string name="tvPhotoLocation">Photo Location</string>    
-        
+    <string name="images_byuser">All Images by User</string>
+    
     <string name="image_title">Image Title</string>
     <string name="image_location">Location</string>
     
@@ -51,6 +52,8 @@
     <string name="profile_bio">Short Bio</string>
     <string name="profile_map_view">View Map</string>
     <string name="profile_view_images">View Images</string>
+
+    <string name="profile_edit">Edit Profile</string>    
     	
     <string name="action_take_photo">Take Photo</string>
     <string name="action_app_settings">Settings</string>

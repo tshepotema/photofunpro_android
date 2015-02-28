@@ -43,18 +43,6 @@
         android:background="@drawable/funcamtheme_btn_default_holo_light" />
 
     <Button
-        android:id="@+id/btPegman"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btClose"
-        android:layout_alignBottom="@+id/btClose"
-        android:layout_alignParentRight="true"
-        android:drawableLeft="@drawable/pegman"
-        android:text="@string/action_street_view"
-        android:textSize="12sp"
-        android:background="@drawable/funcamtheme_btn_default_holo_light" />
-
-    <Button
         android:id="@+id/btShare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,5 +53,15 @@
         android:text="@string/action_share_plain"
         android:textSize="12sp"
         android:background="@drawable/funcamtheme_btn_default_holo_light" />
+
+    <Button
+        android:id="@+id/btViewAllByUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/btShare"
+        android:background="@drawable/funcamtheme_btn_default_holo_light"
+        android:text="@string/images_byuser"
+        android:textSize="12sp" />
 
 </RelativeLayout>

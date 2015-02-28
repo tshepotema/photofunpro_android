@@ -62,8 +62,8 @@ public class AppSettings extends Fragment {
 		sharedPref = getActivity().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 		editor = sharedPref.edit();
 
-		etUploaderName.setText(sharedPref.getString(nameKey, "funcam_GuestUser"));
-		etDistanceKM.setText(sharedPref.getString(distanceKey, "50"));
+		etUploaderName.setText(sharedPref.getString(nameKey, "Tshepo"));
+		etDistanceKM.setText(sharedPref.getString(distanceKey, "100"));
 		sbMarkerSize.setProgress(sharedPref.getInt(markerKey, 50));		
 		wifiOn = sharedPref.getInt(wifiKey, 1);
 	      	      

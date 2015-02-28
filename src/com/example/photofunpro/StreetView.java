@@ -15,7 +15,6 @@ import android.util.FloatMath;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.SeekBar;
 import android.widget.Toast;
 
 public class StreetView extends FragmentActivity {
@@ -31,8 +30,6 @@ public class StreetView extends FragmentActivity {
 
     private StreetViewPanorama svp;
 
-    private SeekBar customDurationBar;
-    
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +42,6 @@ public class StreetView extends FragmentActivity {
         LOCATION_VIEWING = new LatLng(gpsLat, gpsLon);
 
         setUpStreetViewPanoramaIfNeeded(savedInstanceState);
-        customDurationBar = (SeekBar) findViewById(R.id.duration_bar);        
         
     }
 
@@ -201,7 +197,7 @@ public class StreetView extends FragmentActivity {
     }
 
     private long getDuration() {
-        return customDurationBar.getProgress();
+        return 1000;
     }
     
 
